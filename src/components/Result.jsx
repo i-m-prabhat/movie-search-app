@@ -3,15 +3,14 @@ import Box from './Box'
 
 function Result(props) {
     const boxes = props.movies.map(
-        ()=>{
-            return <Box/>
+        (item,index) => {
+            return <Box key={index} image={item.poster_path} title={item.original_title} rating={item.vote_average} />
         }
     )
-  return (
-    <div className='w-full grid grid-cols-4 gap-5'>
+    return (
+        <div className='w-full grid md:grid-cols-4 gap-5'>
             {boxes}
-    </div>
-  )
+        </div>
+    )
 }
-
 export default Result
